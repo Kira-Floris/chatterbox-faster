@@ -142,11 +142,11 @@ class ChatterboxTTS:
         )
         ve.to(device).eval()
 
-        t3 = T3()
-        t3_state = load_file(ckpt_dir / "t3_cfg.safetensors")
-        if "model" in t3_state.keys():
-            t3_state = t3_state["model"][0]
-        t3.load_state_dict(t3_state)
+        # t3 = T3()
+        # t3_state = load_file(ckpt_dir / "t3_cfg.safetensors")
+        # if "model" in t3_state.keys():
+        #     t3_state = t3_state["model"][0]
+        # t3.load_state_dict(t3_state)
 
         t3 = T3(hp=_get_t3_config(ckpt_dir))
         t3_state = load_file(ckpt_dir / "t3_cfg.safetensors")
