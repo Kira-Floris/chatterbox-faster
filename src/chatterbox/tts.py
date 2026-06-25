@@ -104,6 +104,15 @@ class Conditionals:
         return cls(T3Cond(**kwargs['t3']), kwargs['gen'])
 
 
+def _get_t3_config(ckpt_dir: Path):
+    """Determine T3Config based on tokenizer vocab size in checkpoint."""
+    import json
+    tokenizer_path = ckpt_dir / "tokenizer.json"
+    with open(tokenizer_path) as f:
+        t = json.load(f)
+    vocab_size = len(t["model"]["vocab"])
+    return T3Config(text_tokens_dict_size=vocab_size)
+
 class ChatterboxTTS:
     ENC_COND_LEN = 6 * S3_SR
     DEC_COND_LEN = 10 * S3GEN_SR
