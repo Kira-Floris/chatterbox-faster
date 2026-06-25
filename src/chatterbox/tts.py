@@ -15,6 +15,7 @@ from .models.s3gen import S3GEN_SR, S3Gen
 from .models.tokenizers import EnTokenizer
 from .models.voice_encoder import VoiceEncoder
 from .models.t3.modules.cond_enc import T3Cond
+from .models.t3.modules.t3_config import T3Config
 
 
 REPO_ID = "ResembleAI/chatterbox"
